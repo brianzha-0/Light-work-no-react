@@ -51,14 +51,8 @@ const YourRoomDesigns = () => {
 
       {/* Stage Section */}
       <Text style={styles.heading}>Stage</Text>
-      <iframe id="your-iframe-id" src="https://pixlr.com/image-generator/"></iframe>
+      <iframe id="your-iframe-id" src="about:empty"></iframe>
       <input type="file" id="your-file-input-id" />
-
-      {response && (
-        <View style={styles.responseContainer}>
-          <Text style={styles.responseText}>{response}</Text>
-        </View>
-      )}
     </ScrollView>
   );
 };
