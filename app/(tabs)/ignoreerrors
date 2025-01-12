@@ -1,0 +1,12 @@
+import { LogBox } from 'react-native';
+
+// Ignore errors from jsonwebtoken package, specifically from sign.js
+LogBox.ignoreLogs([
+  /.*node_modules.*jsonwebtoken.*sign\.js.*/i,  // Regex to match errors from sign.js
+]);
+
+export default function App() {
+  return (
+    // Your app code
+  );
+}

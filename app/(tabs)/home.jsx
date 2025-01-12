@@ -51,13 +51,8 @@ const YourRoomDesigns = () => {
 
       {/* Stage Section */}
       <Text style={styles.heading}>Stage</Text>
-      <TextInput
-        style={styles.inputField}
-        placeholder="Design your next ideal room"
-        value={designText}
-        onChangeText={handleInputChange}
-      />
-      <Button title="Generate Design Idea" onPress={handleSubmit} />
+      <iframe id="your-iframe-id" src="https://pixlr.com/image-generator/"></iframe>
+      <input type="file" id="your-file-input-id" />
 
       {response && (
         <View style={styles.responseContainer}>
