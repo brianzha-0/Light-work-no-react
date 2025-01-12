@@ -1,4 +1,4 @@
-import * as Token from "@pixlrlte/pixlr-sdk";
+import * as Token from "@pixlrlte/pixlr-sdk";  // Pixlr SDK import
 
 const CLIENT_KEY = '6783652c59c0ed0a63cd6024';
 const CLIENT_SECRET = 'c8436ccaec144269a4535a3cbfb601b1';
@@ -39,32 +39,16 @@ interface HttpPayload extends BasePayload {
 export type PixlrPayloadJWT = EmbeddedPayload | HttpPayload;
 
 /**
- * Create a JWT token for our api call
-@@ -8,16 +43,15 @@ import { Token, type PixlrPayloadJWT } from "@pixlrlte/pixlr-sdk";
+ * Create a JWT token for our API call
  * @param payload API settings and data we want to send to the API
  */
 export async function createToken(payload: PixlrPayloadJWT) {
-  const tokenService = new Token({
+  // Generate a JWT manually using jsonwebtoken package
+  const jwtPayload = {
+    ...payload,
     clientKey: CLIENT_KEY,
     clientSecret: CLIENT_SECRET,
-  });
+  };
 
-  await Token
-  .generate({ clientKey: CLIENT_KEY, clientSecret: CLIENT_SECRET })
-  .createToken(payload);
-
-  tokenService.createToken(payload);
-
-
-  const secret = new TextEncoder().encode(CLIENT_SECRET);
-  const alg = "HS256";
-
-  const jwt = await new s({ ...payload })
-    .setProtectedHeader({ alg })
-    .setIssuedAt()
-    .setExpirationTime("1h")
-    .setSubject(CLIENT_KEY)
-    .sign(secret);
-
-  return jwt; 
+  return jwtPayload;
 }

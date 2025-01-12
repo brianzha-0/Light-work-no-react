@@ -51,8 +51,17 @@ const YourRoomDesigns = () => {
 
       {/* Stage Section */}
       <Text style={styles.heading}>Stage</Text>
-      <iframe id="your-iframe-id" src="about:empty"></iframe>
-      <input type="file" id="your-file-input-id" />
+      <iframe width="560"
+              height="315"
+              id="your-iframe-id"
+              src="https://pixlr.com/image-generator/">
+      </iframe>
+      <TextInput
+          editable
+          multiline
+          onChangeText={text => onChangeText(text)}
+          style={styles.inputField}
+        />
     </ScrollView>
   );
 };
